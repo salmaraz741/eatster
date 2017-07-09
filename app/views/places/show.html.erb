@@ -4,26 +4,12 @@
   <br/><br/>
   <p><%= @place.description %></p>
 
-<style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    #map {
-      height: 100%;
-    }
-    #map {
-      height: 300px;
-    }
-
 <% if @place.latitude.present? && @place.longitude.present? %>
 
   <script>
 
     function initMap() {
       var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
- 
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
@@ -44,8 +30,6 @@
 
   <div id="map"></div>
 <% end %>
-
-<br />
 
   <div class="float-right">
     <% if current_user && current_user == @place.user %>
